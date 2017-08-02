@@ -1,0 +1,25 @@
+AppBundle\Entity\Act:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\ActRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        stage:
+            type: string
+            length: 255
+        name:
+            type: string
+            length: 255
+        starttime:
+            type: datetime
+        endtime:
+            type: datetime
+        description:
+            type: text
+            nullable: true
+    lifecycleCallbacks: {  }

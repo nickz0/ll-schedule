@@ -33,3 +33,13 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+    AppBundle\Controller\DefaultController:
+        public: true
+        arguments:
+            - '@doctrine.orm.entity_manager'
+    app.command.import_timetable:
+        class: AppBundle\Command\ImportTimetableCommand
+        arguments:
+            - '@doctrine.orm.entity_manager'
+        tags:
+            - { name: console.command }
