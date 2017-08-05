@@ -95,9 +95,6 @@ jQuery(document).ready(function($){
 			var eventTop = self.eventSlotHeight*(start - self.timelineStart)/self.timelineUnitDuration;
 			var eventHeight = self.eventSlotHeight*duration/self.timelineUnitDuration;
 
-			console.log('top: ' + eventTop);
-			console.log('height' + eventHeight);
-
 			$(this).css({
 				top: (eventTop -1) +'px',
 				height: (eventHeight+1)+'px'
