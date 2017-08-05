@@ -12,8 +12,8 @@
             <a class='btn' href='{{ path("acts_by_day", {"day": "sunday"}) }}'>Sunday</a>
         </li>
     </ul>
-
     <div class="cd-schedule loading">
+
         {# timeline #}
         <div class="timeline" data-start="{{ eventdate|date('U') }}">
             <ul>
@@ -63,8 +63,8 @@
         <div class="events">
             <ul>
                 {% for stage, stageacts in acts %}
-                    <li class="events-group">
-                        <div class="top-info"><span>{{ stage }}</span></div>
+                    <li class="events-group events-group-{{ loop.index }}">
+                        <div class="top-info"><span>{{ stage|upper }}</span></div>
                         <ul>
                             {% for act in stageacts %}
                                 <li class="single-event" data-start="{{ act.starttime|date('U') }}" data-end="{{ act.endtime|date('U') }}" data-content="{{ path('acts_detail', {'id': act.id}) }}" data-event="{{ 'event-'~act.id }}">

@@ -173,7 +173,7 @@ Main Components
 		width: 70%;
 		max-width: 300px;
 		box-shadow: inset 0 -3px 0 rgba(#000, .2);
-		border-radius: 3px;
+		border: 3px solid rgba(#000, .4);
 		margin-right: 20px;
 		transition: opacity .2s, background .2s;
 
@@ -202,7 +202,8 @@ Main Components
 			width: 100%/$columns-number;
 			float: left;
 			border: 1px solid $border-color;
-			padding: 0px 5px 0px 5px;
+
+			padding: 5px;
 			/* reset style */
 			margin-bottom: 0;
 
@@ -218,6 +219,9 @@ Main Components
 			border-bottom: 1px solid $border-color;
 			/* reset style */
 			padding: 0;
+
+			background-color: #000000;
+			color: #ffffff;
 
 			> span {
 				/* vertically center inside its parent */
@@ -260,7 +264,7 @@ Main Components
 			margin-right: 0;
 
 			a {
-				padding: 0.5em 1em 0.5em 1em;
+				padding: 0.25em;
 			}
 
 			&:last-of-type {
@@ -315,6 +319,56 @@ Main Components
 .cd-schedule .single-event,
 .cd-schedule .header-bg {
 	background: $event-color-1;
+}
+
+.cd-schedule .events-group-1 .single-event,
+.cd-schedule .events-group-1 .header-bg {
+	background: $event-color-1;
+}
+
+.cd-schedule .events-group-2 .single-event,
+.cd-schedule .events-group-2 .header-bg {
+	background: $event-color-2;
+}
+
+.cd-schedule .events-group-3 .single-event,
+.cd-schedule .events-group-3 .header-bg {
+	background: $event-color-3;
+}
+
+.cd-schedule .events-group-4 .single-event,
+.cd-schedule .events-group-4 .header-bg {
+	background: $event-color-4;
+}
+
+.cd-schedule .events-group-5 .single-event,
+.cd-schedule .events-group-5 .header-bg {
+	background: $event-color-5;
+}
+
+.cd-schedule .events-group-6 .single-event,
+.cd-schedule .events-group-6 .header-bg {
+	background: $event-color-6;
+}
+
+.cd-schedule .events-group-7 .single-event,
+.cd-schedule .events-group-7 .header-bg {
+	background: $event-color-7;
+}
+
+.cd-schedule .events-group-8 .single-event,
+.cd-schedule .events-group-8 .header-bg {
+	background: $event-color-8;
+}
+
+.cd-schedule .events-group-9 .single-event,
+.cd-schedule .events-group-9 .header-bg {
+	background: $event-color-9;
+}
+
+.cd-schedule .events-group-10 .single-event,
+.cd-schedule .events-group-10 .header-bg {
+	background: $event-color-10;
 }
 
 .cd-schedule .event-modal {
@@ -563,7 +617,7 @@ Main Components
 
 .switchday {
 	margin-top: 30px;
-	text-align: center;
+	text-align: right;
 	li {
 		display: inline-block;
 	}
