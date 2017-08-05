@@ -1,60 +1,62 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+    <ul class='switchday'>
+        <li>
+            <a class='btn' href='{{ path("acts_by_day", {"day": "friday"}) }}'>Friday</a>
+        </li>
+        <li>
+            <a class='btn' href='{{ path("acts_by_day", {"day": "saturday"}) }}'>Saturday</a>
+        </li>
+        <li>
+            <a class='btn' href='{{ path("acts_by_day", {"day": "sunday"}) }}'>Sunday</a>
+        </li>
+    </ul>
+
     <div class="cd-schedule loading">
         {# timeline #}
         <div class="timeline" data-start="{{ eventdate|date('U') }}">
             <ul>
-                {% set days = ['friday', 'saturday', 'sunday'] %}
-                {% for day in days %}
-                    <li><span>10:00</span></li>
-                    <li><span>10:30</span></li>
-                    <li><span>11:00</span></li>
-                    <li><span>11:30</span></li>
-                    <li><span>12:00</span></li>
-                    <li><span>12:30</span></li>
-                    <li><span>13:00</span></li>
-                    <li><span>13:30</span></li>
-                    <li><span>14:00</span></li>
-                    <li><span>14:30</span></li>
-                    <li><span>15:00</span></li>
-                    <li><span>15:30</span></li>
-                    <li><span>16:00</span></li>
-                    <li><span>16:30</span></li>
-                    <li><span>17:00</span></li>
-                    <li><span>17:30</span></li>
-                    <li><span>18:00</span></li>
-                    <li><span>18:30</span></li>
-                    <li><span>19:00</span></li>
-                    <li><span>19:30</span></li>
-                    <li><span>20:00</span></li>
-                    <li><span>20:30</span></li>
-                    <li><span>21:00</span></li>
-                    <li><span>21:30</span></li>
-                    <li><span>22:00</span></li>
-                    <li><span>22:30</span></li>
-                    <li><span>23:00</span></li>
-                    <li><span>23:30</span></li>
-                    <li><span>0:00</span></li>
-                    <li><span>0:30</span></li>
-                    <li><span>1:00</span></li>
-                    <li><span>1:30</span></li>
-                    <li><span>2:00</span></li>
-                    <li><span>2:30</span></li>
-                    <li><span>3:00</span></li>
-                    <li><span>3:30</span></li>
-                    <li><span>4:00</span></li>
-                    <li><span>4:30</span></li>
-                    <li><span>5:00</span></li>
-                    <li><span>5:30</span></li>
-                    <li><span>6:00</span></li>
-                    <li><span>6:30</span></li>
-                    <li><span>7:00</span></li>
-                    <li><span>7:30</span></li>
-                    <li><span>8:00</span></li>
-                    <li><span>8:30</span></li>
-                    <li><span>9:30</span></li>
-                {% endfor %}
+                <li><span>10:00</span></li>
+                <li><span>10:30</span></li>
+                <li><span>11:00</span></li>
+                <li><span>11:30</span></li>
+                <li><span>12:00</span></li>
+                <li><span>12:30</span></li>
+                <li><span>13:00</span></li>
+                <li><span>13:30</span></li>
+                <li><span>14:00</span></li>
+                <li><span>14:30</span></li>
+                <li><span>15:00</span></li>
+                <li><span>15:30</span></li>
+                <li><span>16:00</span></li>
+                <li><span>16:30</span></li>
+                <li><span>17:00</span></li>
+                <li><span>17:30</span></li>
+                <li><span>18:00</span></li>
+                <li><span>18:30</span></li>
+                <li><span>19:00</span></li>
+                <li><span>19:30</span></li>
+                <li><span>20:00</span></li>
+                <li><span>20:30</span></li>
+                <li><span>21:00</span></li>
+                <li><span>21:30</span></li>
+                <li><span>22:00</span></li>
+                <li><span>22:30</span></li>
+                <li><span>23:00</span></li>
+                <li><span>23:30</span></li>
+                <li><span>0:00</span></li>
+                <li><span>0:30</span></li>
+                <li><span>1:00</span></li>
+                <li><span>1:30</span></li>
+                <li><span>2:00</span></li>
+                <li><span>2:30</span></li>
+                <li><span>3:00</span></li>
+                <li><span>3:30</span></li>
+                <li><span>4:00</span></li>
+                <li><span>4:30</span></li>
+                <li><span>5:00</span></li>
+                <li><span>5:30</span></li>
             </ul>
         </div>
         {# event #}
@@ -65,7 +67,7 @@
                         <div class="top-info"><span>{{ stage }}</span></div>
                         <ul>
                             {% for act in stageacts %}
-                                <li class="single-event" data-start="{{ act.starttime|date('U') }}" data-end="{{ act.endtime|date('U') }}" data-content="event-abs-circuit" data-event="{{ 'event-'~act.id }}">
+                                <li class="single-event" data-start="{{ act.starttime|date('U') }}" data-end="{{ act.endtime|date('U') }}" data-content="{{ path('acts_detail', {'id': act.id}) }}" data-event="{{ 'event-'~act.id }}">
                                     <a href="#0">
                                         <span class="event-date">{{ act.starttime|date('H:i') }} - {{ act.endtime|date('H:i') }}</span>
                                         <em class="event-name">{{ act.name }}</em>
@@ -74,7 +76,6 @@
                             {% endfor %}
                         </ul>
                     </li>
-
                 {% endfor %}
             </ul>
         </div>
@@ -86,7 +87,6 @@
                     <span class="event-date"></span>
                     <h3 class="event-name"></h3>
                 </div>
-
                 <div class="header-bg"></div>
             </header>
 

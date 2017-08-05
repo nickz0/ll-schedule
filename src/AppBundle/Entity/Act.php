@@ -38,6 +38,16 @@ class Act
     private $description;
 
     /**
+     * @var string
+     */
+    private $spotifyArtistId;
+
+    /**
+     * @var string
+     */
+    private $spotifyLastAlbumId;
+
+    /**
      * Get id
      *
      * @return int
@@ -166,5 +176,41 @@ class Act
     {
         return $this->description;
     }
-}
 
+    /**
+     * @return string
+     */
+    public function getSpotifyArtistId(): string
+    {
+        return $this->spotifyArtistId;
+    }
+
+    /**
+     * @param string $spotifyArtistId
+     */
+    public function setSpotifyArtistId($spotifyArtistId): Act
+    {
+        $this->spotifyArtistId = $spotifyArtistId;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSpotifyLastAlbumId(): string
+    {
+        return $this->spotifyLastAlbumId;
+    }
+
+    /**
+     * @param string $spotifyLastAlbumId
+     */
+    public function setSpotifyLastAlbumId($spotifyLastAlbumId): Act
+    {
+        $this->spotifyLastAlbumId = $spotifyLastAlbumId;
+
+        return $this;
+    }
+
+}

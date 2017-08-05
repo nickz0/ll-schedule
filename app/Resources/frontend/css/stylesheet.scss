@@ -8,6 +8,10 @@
 
 @import 'partials/layout'; // responsive grid and media queries
 
+@import 'partials/buttons'; // buttons
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
 /* -------------------------------- 
 
 Primary style
@@ -169,6 +173,7 @@ Main Components
 		width: 70%;
 		max-width: 300px;
 		box-shadow: inset 0 -3px 0 rgba(#000, .2);
+		border-radius: 3px;
 		margin-right: 20px;
 		transition: opacity .2s, background .2s;
 
@@ -197,6 +202,7 @@ Main Components
 			width: 100%/$columns-number;
 			float: left;
 			border: 1px solid $border-color;
+			padding: 0px 5px 0px 5px;
 			/* reset style */
 			margin-bottom: 0;
 
@@ -292,7 +298,7 @@ Main Components
 
 .cd-schedule .event-name {
 	font-size: 2.4rem;
-
+	line-height: 1.2;
 	@include MQ(M) {
 		font-size: 1.25rem;
 	}
@@ -553,4 +559,12 @@ Main Components
 .cd-schedule.modal-is-open .cover-layer {
 	opacity: 1;
 	visibility: visible;
+}
+
+.switchday {
+	margin-top: 30px;
+	text-align: center;
+	li {
+		display: inline-block;
+	}
 }

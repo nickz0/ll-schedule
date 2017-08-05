@@ -22,4 +22,12 @@ AppBundle\Entity\Act:
         description:
             type: text
             nullable: true
+        spotifyArtistId:
+            type: string
+            column: spotify_artist_id
+            nullable: true
+        spotifyLastAlbumId:
+            type: string
+            column: spotify_last_album_id
+            nullable: true
     lifecycleCallbacks: {  }

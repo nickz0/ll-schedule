@@ -2,6 +2,14 @@ homepage:
     path: /
     defaults: { _controller: AppBundle:Default:index }
 
+acts_by_day:
+    path: /{day}
+    defaults: { _controller: AppBundle:Default:index }
+
+acts_detail:
+    path: /act/{id}
+    defaults: { _controller: AppBundle:Default:show }
+
 new_act:
     path: /admin/new
     defaults: { _controller: AppBundle:Default:new }
