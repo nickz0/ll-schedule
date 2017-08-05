@@ -43,9 +43,3 @@ services:
             - '@doctrine.orm.entity_manager'
         tags:
             - { name: console.command }
-    app.command.find_spotify_artist:
-        class: AppBundle\Command\FindSpotifyArtistCommand
-        arguments:
-            - '@doctrine.orm.entity_manager'
-        tags:
-            - { name: console.command }
