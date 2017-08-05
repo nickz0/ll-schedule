@@ -2,7 +2,6 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Form\ActType;
 use AppBundle\Entity\Act;
 use DateTime;
 use Doctrine\ORM\EntityManagerInterface;
@@ -63,31 +62,6 @@ class DefaultController extends Controller
         return $this->render('default/show.html.twig', [
             'act' => $act
         ]);
-    }
-
-    /**
-     * @param Request $request
-     * @return Response
-     */
-    public function newAction(Request $request)
-    {
-        $act = new Act();
-
-        $form = $this->createForm(ActType::class, $act);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $act = $form->getData();
-
-            $this->em->persist($act);
-            $this->em->flush();
-
-            return $this->redirectToRoute('homepage');
-        }
-
-        return $this->render('default/new.html.twig', array(
-            'form' => $form->createView(),
-        ));
     }
 
     /**

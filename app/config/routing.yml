@@ -9,7 +9,3 @@ acts_by_day:
 acts_detail:
     path: /act/{id}
     defaults: { _controller: AppBundle:Default:show }
-
-new_act:
-    path: /admin/new
-    defaults: { _controller: AppBundle:Default:new }
