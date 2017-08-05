@@ -23,7 +23,9 @@ class ActRepository extends EntityRepository
             ->andWhere('a.starttime > :startTime')
             ->andWhere('a.endtime < :endTime')
             ->setParameter('startTime', date('Y-m-d H:i:s', $date->getTimestamp()))
-            ->setParameter('endTime', date('Y-m-d H:i:s', $date->modify('+ 23 hours')->getTimestamp()));
+            ->setParameter('endTime', date('Y-m-d H:i:s', $date->modify('+ 23 hours')->getTimestamp()))
+            ->addOrderBy('a.stage', 'asc')
+            ->addOrderBy('a.starttime', 'asc');
 
         return $queryBuilder->getQuery()->getResult();
     }
