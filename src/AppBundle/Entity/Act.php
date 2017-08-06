@@ -43,9 +43,14 @@ class Act
     private $spotifyArtistId;
 
     /**
-     * @var string
+     * @var array
      */
-    private $spotifyLastAlbumId;
+    private $spotifyTopTracks;
+
+    public function __construct()
+    {
+        $this->spotifyTopTracks = [];
+    }
 
     /**
      * Get id
@@ -55,6 +60,16 @@ class Act
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     /**
@@ -180,7 +195,7 @@ class Act
     /**
      * @return string
      */
-    public function getSpotifyArtistId(): string
+    public function getSpotifyArtistId()
     {
         return $this->spotifyArtistId;
     }
@@ -196,19 +211,30 @@ class Act
     }
 
     /**
-     * @return string
+     * @return array
      */
-    public function getSpotifyLastAlbumId(): string
+    public function getSpotifyTopTracks()
     {
-        return $this->spotifyLastAlbumId;
+        return $this->spotifyTopTracks;
     }
 
     /**
      * @param string $spotifyLastAlbumId
      */
-    public function setSpotifyLastAlbumId($spotifyLastAlbumId): Act
+    public function setSpotifyTopTracks($spotifyTopTracks): Act
     {
-        $this->spotifyLastAlbumId = $spotifyLastAlbumId;
+        $this->spotifyTopTracks = $spotifyTopTracks;
+
+        return $this;
+    }
+
+    /**
+     * @param $spotifyTopTracksId
+     * @return $this
+     */
+    public function addSpotifyTopTracks($spotifyTopTracksId)
+    {
+        $this->spotifyTopTracks[] = $spotifyTopTracksId;
 
         return $this;
     }

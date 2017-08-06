@@ -71,7 +71,11 @@
                                 <li class="single-event" data-start="{{ act.starttime|date('U') }}" data-end="{{ act.endtime|date('U') }}" data-content="{{ path('acts_detail', {'id': act.id}) }}" data-event="{{ 'event-'~act.id }}">
                                     <a href="#0">
                                         <span class="event-date">{{ act.starttime|date('H:i') }} - {{ act.endtime|date('H:i') }}</span>
-                                        <em class="event-name">{{ act.name }}</em>
+                                        <em class="event-name">{{ act.name }}
+                                        {% if act.spotifyTopTracks is not empty %}
+                                            <i class="fa fa-spotify" aria-hidden="true"></i>
+                                        {% endif %}
+                                        </em>
                                     </a>
                                 </li>
                             {% endfor %}

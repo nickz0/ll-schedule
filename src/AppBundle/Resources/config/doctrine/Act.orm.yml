@@ -26,8 +26,8 @@ AppBundle\Entity\Act:
             type: string
             column: spotify_artist_id
             nullable: true
-        spotifyLastAlbumId:
-            type: string
-            column: spotify_last_album_id
+        spotifyTopTracks:
+            type: array
+            column: spotify_top_tracks
             nullable: true
     lifecycleCallbacks: {  }

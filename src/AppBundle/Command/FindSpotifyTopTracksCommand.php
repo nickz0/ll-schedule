@@ -12,7 +12,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 
-class FindSpotifyArtistCommand extends Command
+class FindSpotifyTopTracksCommand extends Command
 {
 
     /**
@@ -38,8 +38,8 @@ class FindSpotifyArtistCommand extends Command
     public function configure()
     {
         $this
-            ->setName('app:spotify-artist')
-            ->setDescription('Search spotify for artists')
+            ->setName('app:spotify-top-tracks')
+            ->setDescription('Search spotify top tracks for artist')
             ->addArgument('token', InputArgument::REQUIRED, 'Spotify API-Token');
     }
 
@@ -58,31 +58,30 @@ class FindSpotifyArtistCommand extends Command
         ]);
 
         foreach($acts as $act) {
+            if($act->getSpotifyArtistId() == '') {
+                continue;
+            }
             sleep(5);
-            $res = $client->request('GET', 'v1/search', [
-                'query' => [
-                    'q' => $act->getName(),
-                    'type' => 'artist'
-                ],
+
+            $path = sprintf('/v1/artists/%s/top-tracks?country=NL', $act->getSpotifyArtistId());
+            $res = $client->request('GET', $path, [
                 'headers' => [
                     'Authorization' => 'Bearer '.$input->getArgument('token')
                 ]
             ]);
 
-            $output->writeln('Checking artist ' . $act->getName() );
+            $output->writeln('Checking top tracks for artist ' . $act->getName() );
             $content = $res->getBody()->getContents();
             $obj = json_decode($content);
 
-            if(count($obj->artists->items) > 0) {
-                $id = $obj->artists->items[0]->id;
-                $name = $obj->artists->items[0]->name;
-                $output->writeln('Found: '.$name . ' with id: '. $id);
-
-                $act->setSpotifyArtistId($id);
+            if(count($obj->tracks) > 0) {
+                foreach($obj->tracks as $track) {
+                    $output->writeln('Found track: '.$track->id);
+                    $act->addSpotifyTopTracks($track->id);
+                }
                 $this->em->persist($act);
                 $this->em->flush();
             }
-
         }
     }
 

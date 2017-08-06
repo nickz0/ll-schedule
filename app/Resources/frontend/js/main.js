@@ -69,10 +69,10 @@ jQuery(document).ready(function($){
 
 		this.singleEvents.each(function(){
 			//detect click on the event and open the modal
-			//$(this).on('click', 'a', function(event){
-			//	event.preventDefault();
-			//	if( !self.animating ) self.openModal($(this));
-			//});
+			$(this).on('click', 'a', function(event){
+				event.preventDefault();
+				if( !self.animating ) self.openModal($(this));
+			});
 		});
 
 		//close modal window

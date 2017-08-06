@@ -10,6 +10,8 @@
 
 @import 'partials/buttons'; // buttons
 
+@import 'font-awesome/font-awesome'; //font awesome
+
 @import url('https://fonts.googleapis.com/css?family=Ubuntu');
 
 /* -------------------------------- 
@@ -420,7 +422,8 @@ Main Components
 		z-index: 2;
 		line-height: 1.4;
 		height: 100%;
-		overflow: hidden;
+		overflow-y: auto;
+		overflow-x: hidden;
 
 		> div {
 			overflow: auto;

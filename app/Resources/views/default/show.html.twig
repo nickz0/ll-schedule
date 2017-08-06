@@ -1,3 +1,8 @@
 <div class='event-info'>
-    <iframe src="https://open.spotify.com/embed/album/7jrxBbSIpwZnOd7kuAYFHG" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+    <br/><br/>
+    {% if act.spotifyTopTracks is not null %}
+        {% for topTrack in act.spotifyTopTracks %}
+            <iframe src="https://open.spotify.com/embed?uri=spotify:track:{{ topTrack }}" height="80px" width="100%" frameborder="0" allowtransparency="true"></iframe>
+        {% endfor %}
+    {% endif %}
 </div>
