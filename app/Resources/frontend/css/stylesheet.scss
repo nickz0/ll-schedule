@@ -142,6 +142,11 @@ Main Components
 			line-height: 1.2;
 			margin-bottom: 10px;
 			font-weight: bold;
+
+			background-color: #000000;
+			color: #ffffff;
+
+			padding: 0 0.5em;
 		}
 	}
 
@@ -169,11 +174,11 @@ Main Components
 		flex-shrink: 0;
 
 		float: left;
-		height: 150px;
+		height: 65px;
 		width: 70%;
 		max-width: 300px;
 		box-shadow: inset 0 -3px 0 rgba(#000, .2);
-		border: 3px solid rgba(#000, .4);
+		border: 3px solid #000000;
 		margin-right: 20px;
 		transition: opacity .2s, background .2s;
 
@@ -203,7 +208,7 @@ Main Components
 			float: left;
 			border: 1px solid $border-color;
 
-			padding: 5px;
+			padding: 0px 3px 0px 3px;
 			/* reset style */
 			margin-bottom: 0;
 
@@ -217,11 +222,11 @@ Main Components
 			display: table;
 			height: $row-height;
 			border-bottom: 1px solid $border-color;
+
 			/* reset style */
 			padding: 0;
 
-			background-color: #000000;
-			color: #ffffff;
+
 
 			> span {
 				/* vertically center inside its parent */
@@ -301,7 +306,7 @@ Main Components
 }
 
 .cd-schedule .event-name {
-	font-size: 2.4rem;
+	font-size: 1.25rem;
 	line-height: 1.2;
 	@include MQ(M) {
 		font-size: 1.25rem;
