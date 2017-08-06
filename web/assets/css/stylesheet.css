@@ -609,7 +609,11 @@ Main Components
 /* line 623, app/Resources/frontend/css/stylesheet.scss */
 .switchday {
   margin-top: 30px;
-  text-align: right; }
+  text-align: center; }
   /* line 626, app/Resources/frontend/css/stylesheet.scss */
   .switchday li {
     display: inline-block; }
+  @media only screen and (min-width: 800px) {
+    /* line 623, app/Resources/frontend/css/stylesheet.scss */
+    .switchday {
+      text-align: right; } }

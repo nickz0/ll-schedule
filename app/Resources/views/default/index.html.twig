@@ -1,19 +1,20 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <ul class='switchday'>
-        <li>
-            <a class='btn' href='{{ path("acts_by_day", {"day": "friday"}) }}'>Friday</a>
-        </li>
-        <li>
-            <a class='btn' href='{{ path("acts_by_day", {"day": "saturday"}) }}'>Saturday</a>
-        </li>
-        <li>
-            <a class='btn' href='{{ path("acts_by_day", {"day": "sunday"}) }}'>Sunday</a>
-        </li>
-    </ul>
+    <div class="cd-schedule">
+        <ul class='switchday'>
+            <li>
+                <a class='btn' href='{{ path("acts_by_day", {"day": "friday"}) }}'>Friday</a>
+            </li>
+            <li>
+                <a class='btn' href='{{ path("acts_by_day", {"day": "saturday"}) }}'>Saturday</a>
+            </li>
+            <li>
+                <a class='btn' href='{{ path("acts_by_day", {"day": "sunday"}) }}'>Sunday</a>
+            </li>
+        </ul>
+    </div>
     <div class="cd-schedule loading">
-
         {# timeline #}
         <div class="timeline" data-start="{{ eventdate|date('U') }}">
             <ul>
