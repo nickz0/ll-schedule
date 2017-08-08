@@ -68,9 +68,12 @@ class PopulateSpotifyPlaylistCommand extends Command
                 $uris[] =  'spotify:track:' . $topTrack;
             }
 
+            // limit track to 5
+            $sliced = array_slice($uris,0,5);
+
             $res = $client->request('POST', $path, [
                 'query' => [
-                    'uris' => implode(',', $uris)
+                    'uris' => implode(',', $sliced)
                 ],
                 'headers' => [
                     'Authorization' => 'Bearer '.$input->getArgument('token')
