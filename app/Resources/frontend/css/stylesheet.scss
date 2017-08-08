@@ -422,8 +422,14 @@ Main Components
 		z-index: 2;
 		line-height: 1.4;
 		height: 100%;
-		overflow-y: auto;
+		overflow-y: hidden;
 		overflow-x: hidden;
+		background-color: #282828;
+		padding: 15px;
+
+		@include MQ(M) {
+			overflow-y: auto;
+		}
 
 		> div {
 			overflow: auto;
@@ -456,7 +462,7 @@ Main Components
 		/* this is the 'X' icon */
 		position: absolute;
 		top: 0;
-		right: 0;
+		right: 0px;
 		z-index: 3;
 		background: rgba(#000, .1);
 		/* replace text with icon */
@@ -465,6 +471,10 @@ Main Components
 		text-indent: 100%;
 		height: 70px;
 		width: 70px;
+
+		@include MQ(M) {
+			right: 8px;
+		}
 
 		&::before, &::after {
 			/* these are the two lines of the 'X' icon */
@@ -564,7 +574,6 @@ Main Components
 			background: transparent;
 
 			&::after, &::before {
-				background: $text-color;
 				height: 16px;
 			}
 		}
