@@ -422,14 +422,10 @@ Main Components
 		z-index: 2;
 		line-height: 1.4;
 		height: 100%;
-		overflow-y: hidden;
+		overflow-y: auto;
 		overflow-x: hidden;
 		background-color: #282828;
 		padding: 15px;
-
-		@include MQ(M) {
-			overflow-y: auto;
-		}
 
 		> div {
 			overflow: auto;
