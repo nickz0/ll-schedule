@@ -55,3 +55,10 @@ services:
             - '@doctrine.orm.entity_manager'
         tags:
             - { name: console.command }
+    app.command.populate_spotify_playlist:
+        class: AppBundle\Command\PopulateSpotifyPlaylistCommand
+        arguments:
+            - '@doctrine.orm.entity_manager'
+        tags:
+            - { name: console.command }
+
