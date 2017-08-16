@@ -3211,7 +3211,7 @@ Main Components
   z-index: 1; }
   /* line 134, app/Resources/frontend/css/stylesheet.scss */
   .cd-schedule .events .events-group {
-    margin-bottom: 30px; }
+    margin-bottom: 10px; }
   /* line 138, app/Resources/frontend/css/stylesheet.scss */
   .cd-schedule .events .top-info {
     width: 100%;
@@ -3227,13 +3227,12 @@ Main Components
       padding: 0 0.5em; }
   /* line 155, app/Resources/frontend/css/stylesheet.scss */
   .cd-schedule .events .events-group > ul {
+    height: 100px;
     position: relative;
     padding: 0 5%;
     /* force its children to stay on one line */
-    display: flex;
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: touch; }
-    /* line 163, app/Resources/frontend/css/stylesheet.scss */
+    display: flex; }
+    /* line 162, app/Resources/frontend/css/stylesheet.scss */
     .cd-schedule .events .events-group > ul::after {
       /* never visible - used to add a right padding to .events-group > ul */
       display: inline-block;
@@ -3242,12 +3241,13 @@ Main Components
       height: 100%;
       opacity: 0;
       color: transparent; }
-  /* line 174, app/Resources/frontend/css/stylesheet.scss */
+  /* line 173, app/Resources/frontend/css/stylesheet.scss */
   .cd-schedule .events .single-event {
     /* force them to stay on one line */
     flex-shrink: 0;
+    position: absolute;
     float: left;
-    height: 65px;
+    height: 100px;
     width: 70%;
     max-width: 300px;
     box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.2);
@@ -3318,7 +3318,6 @@ Main Components
           display: none; }
       /* line 260, app/Resources/frontend/css/stylesheet.scss */
       .cd-schedule .events .single-event {
-        position: absolute;
         z-index: 3;
         /* top position and height will be set using js */
         width: calc(100% + 2px);
@@ -3329,14 +3328,14 @@ Main Components
         height: auto;
         max-width: none;
         margin-right: 0; }
-        /* line 273, app/Resources/frontend/css/stylesheet.scss */
+        /* line 272, app/Resources/frontend/css/stylesheet.scss */
         .cd-schedule .events .single-event a {
           padding: 0.25em; }
-        /* line 277, app/Resources/frontend/css/stylesheet.scss */
+        /* line 276, app/Resources/frontend/css/stylesheet.scss */
         .cd-schedule .events .single-event:last-of-type {
           /* reset style */
           margin-right: 0; }
-        /* line 282, app/Resources/frontend/css/stylesheet.scss */
+        /* line 281, app/Resources/frontend/css/stylesheet.scss */
         .cd-schedule .events .single-event.selected-event {
           /* the .selected-event class is added when an user select the event */
           visibility: hidden; } }
@@ -3347,13 +3346,13 @@ Main Components
       width: calc(100% - 60px);
       margin-left: 60px; } }
 
-/* line 296, app/Resources/frontend/css/stylesheet.scss */
+/* line 295, app/Resources/frontend/css/stylesheet.scss */
 .cd-schedule.loading .events .single-event {
   /* the class .loading is added by default to the .cd-schedule element
 	   it is removed as soon as the single events are placed in the schedule plan (using javascript) */
   opacity: 0; }
 
-/* line 302, app/Resources/frontend/css/stylesheet.scss */
+/* line 301, app/Resources/frontend/css/stylesheet.scss */
 .cd-schedule .event-name,
 .cd-schedule .event-date {
   display: block;
@@ -3362,16 +3361,16 @@ Main Components
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
 
-/* line 310, app/Resources/frontend/css/stylesheet.scss */
+/* line 309, app/Resources/frontend/css/stylesheet.scss */
 .cd-schedule .event-name {
   font-size: 1.25rem;
   line-height: 1.2; }
   @media only screen and (min-width: 800px) {
-    /* line 310, app/Resources/frontend/css/stylesheet.scss */
+    /* line 309, app/Resources/frontend/css/stylesheet.scss */
     .cd-schedule .event-name {
       font-size: 1.25rem; } }
 
-/* line 318, app/Resources/frontend/css/stylesheet.scss */
+/* line 317, app/Resources/frontend/css/stylesheet.scss */
 .cd-schedule .event-date {
   /* they are not included in the the HTML but added using JavScript */
   font-size: 1.1rem;
@@ -3379,62 +3378,62 @@ Main Components
   line-height: 1.2;
   margin-bottom: .2em; }
 
-/* line 326, app/Resources/frontend/css/stylesheet.scss */
+/* line 325, app/Resources/frontend/css/stylesheet.scss */
 .cd-schedule .single-event,
 .cd-schedule .header-bg {
   background: #114B5F; }
 
-/* line 331, app/Resources/frontend/css/stylesheet.scss */
+/* line 330, app/Resources/frontend/css/stylesheet.scss */
 .cd-schedule .events-group-1 .single-event,
 .cd-schedule .events-group-1 .header-bg {
   background: #114B5F; }
 
-/* line 336, app/Resources/frontend/css/stylesheet.scss */
+/* line 335, app/Resources/frontend/css/stylesheet.scss */
 .cd-schedule .events-group-2 .single-event,
 .cd-schedule .events-group-2 .header-bg {
   background: #336699; }
 
-/* line 341, app/Resources/frontend/css/stylesheet.scss */
+/* line 340, app/Resources/frontend/css/stylesheet.scss */
 .cd-schedule .events-group-3 .single-event,
 .cd-schedule .events-group-3 .header-bg {
   background: #EF476F; }
 
-/* line 346, app/Resources/frontend/css/stylesheet.scss */
+/* line 345, app/Resources/frontend/css/stylesheet.scss */
 .cd-schedule .events-group-4 .single-event,
 .cd-schedule .events-group-4 .header-bg {
   background: #70A288; }
 
-/* line 351, app/Resources/frontend/css/stylesheet.scss */
+/* line 350, app/Resources/frontend/css/stylesheet.scss */
 .cd-schedule .events-group-5 .single-event,
 .cd-schedule .events-group-5 .header-bg {
   background: #CAD178; }
 
-/* line 356, app/Resources/frontend/css/stylesheet.scss */
+/* line 355, app/Resources/frontend/css/stylesheet.scss */
 .cd-schedule .events-group-6 .single-event,
 .cd-schedule .events-group-6 .header-bg {
   background: #607B7D; }
 
-/* line 361, app/Resources/frontend/css/stylesheet.scss */
+/* line 360, app/Resources/frontend/css/stylesheet.scss */
 .cd-schedule .events-group-7 .single-event,
 .cd-schedule .events-group-7 .header-bg {
   background: #9191E9; }
 
-/* line 366, app/Resources/frontend/css/stylesheet.scss */
+/* line 365, app/Resources/frontend/css/stylesheet.scss */
 .cd-schedule .events-group-8 .single-event,
 .cd-schedule .events-group-8 .header-bg {
   background: #3B1C32; }
 
-/* line 371, app/Resources/frontend/css/stylesheet.scss */
+/* line 370, app/Resources/frontend/css/stylesheet.scss */
 .cd-schedule .events-group-9 .single-event,
 .cd-schedule .events-group-9 .header-bg {
   background: #540D6E; }
 
-/* line 376, app/Resources/frontend/css/stylesheet.scss */
+/* line 375, app/Resources/frontend/css/stylesheet.scss */
 .cd-schedule .events-group-10 .single-event,
 .cd-schedule .events-group-10 .header-bg {
   background: #EB5E55; }
 
-/* line 381, app/Resources/frontend/css/stylesheet.scss */
+/* line 380, app/Resources/frontend/css/stylesheet.scss */
 .cd-schedule .event-modal {
   position: fixed;
   z-index: 3;
@@ -3448,14 +3447,14 @@ Main Components
   transform: translateX(100%);
   transition: transform .4s, visibility .4s;
   transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1); }
-  /* line 396, app/Resources/frontend/css/stylesheet.scss */
+  /* line 395, app/Resources/frontend/css/stylesheet.scss */
   .cd-schedule .event-modal .header {
     position: relative;
     height: 70px;
     /* vertically center its content */
     display: table;
     width: 100%; }
-    /* line 403, app/Resources/frontend/css/stylesheet.scss */
+    /* line 402, app/Resources/frontend/css/stylesheet.scss */
     .cd-schedule .event-modal .header .content {
       position: relative;
       z-index: 3;
@@ -3463,13 +3462,13 @@ Main Components
       display: table-cell;
       vertical-align: middle;
       padding: .6em 5%; }
-  /* line 413, app/Resources/frontend/css/stylesheet.scss */
+  /* line 412, app/Resources/frontend/css/stylesheet.scss */
   .cd-schedule .event-modal .body {
     position: relative;
     width: 100%;
     /* 70px is the .header height */
     height: calc(100% - 70px); }
-  /* line 420, app/Resources/frontend/css/stylesheet.scss */
+  /* line 419, app/Resources/frontend/css/stylesheet.scss */
   .cd-schedule .event-modal .event-info {
     position: relative;
     z-index: 2;
@@ -3479,12 +3478,12 @@ Main Components
     overflow-x: hidden;
     background-color: #282828;
     padding: 15px; }
-    /* line 430, app/Resources/frontend/css/stylesheet.scss */
+    /* line 429, app/Resources/frontend/css/stylesheet.scss */
     .cd-schedule .event-modal .event-info > div {
       overflow: auto;
       height: 100%;
       padding: 1.4em 5%; }
-  /* line 437, app/Resources/frontend/css/stylesheet.scss */
+  /* line 436, app/Resources/frontend/css/stylesheet.scss */
   .cd-schedule .event-modal .header-bg, .cd-schedule .event-modal .body-bg {
     /* these are the morphing backgrounds - visible on desktop only */
     position: absolute;
@@ -3492,16 +3491,16 @@ Main Components
     left: 0;
     height: 100%;
     width: 100%; }
-  /* line 446, app/Resources/frontend/css/stylesheet.scss */
+  /* line 445, app/Resources/frontend/css/stylesheet.scss */
   .cd-schedule .event-modal .body-bg {
     z-index: 1;
     background: #ffffff;
     transform-origin: top left; }
-  /* line 452, app/Resources/frontend/css/stylesheet.scss */
+  /* line 451, app/Resources/frontend/css/stylesheet.scss */
   .cd-schedule .event-modal .header-bg {
     z-index: 2;
     transform-origin: top center; }
-  /* line 457, app/Resources/frontend/css/stylesheet.scss */
+  /* line 456, app/Resources/frontend/css/stylesheet.scss */
   .cd-schedule .event-modal .close {
     /* this is the 'X' icon */
     position: absolute;
@@ -3516,10 +3515,10 @@ Main Components
     height: 70px;
     width: 70px; }
     @media only screen and (min-width: 800px) {
-      /* line 457, app/Resources/frontend/css/stylesheet.scss */
+      /* line 456, app/Resources/frontend/css/stylesheet.scss */
       .cd-schedule .event-modal .close {
         right: 8px; } }
-    /* line 475, app/Resources/frontend/css/stylesheet.scss */
+    /* line 474, app/Resources/frontend/css/stylesheet.scss */
     .cd-schedule .event-modal .close::before, .cd-schedule .event-modal .close::after {
       /* these are the two lines of the 'X' icon */
       content: '';
@@ -3531,23 +3530,23 @@ Main Components
       background: #ffffff;
       -webkit-backface-visibility: hidden;
       backface-visibility: hidden; }
-    /* line 488, app/Resources/frontend/css/stylesheet.scss */
+    /* line 487, app/Resources/frontend/css/stylesheet.scss */
     .cd-schedule .event-modal .close::before {
       transform: translateX(-50%) translateY(-50%) rotate(45deg); }
-    /* line 492, app/Resources/frontend/css/stylesheet.scss */
+    /* line 491, app/Resources/frontend/css/stylesheet.scss */
     .cd-schedule .event-modal .close::after {
       transform: translateX(-50%) translateY(-50%) rotate(-45deg); }
-  /* line 497, app/Resources/frontend/css/stylesheet.scss */
+  /* line 496, app/Resources/frontend/css/stylesheet.scss */
   .cd-schedule .event-modal .event-date {
     display: none; }
-  /* line 501, app/Resources/frontend/css/stylesheet.scss */
+  /* line 500, app/Resources/frontend/css/stylesheet.scss */
   .cd-schedule .event-modal.no-transition {
     transition: none; }
-    /* line 504, app/Resources/frontend/css/stylesheet.scss */
+    /* line 503, app/Resources/frontend/css/stylesheet.scss */
     .cd-schedule .event-modal.no-transition .header-bg, .cd-schedule .event-modal.no-transition .body-bg {
       transition: none; }
   @media only screen and (min-width: 800px) {
-    /* line 381, app/Resources/frontend/css/stylesheet.scss */
+    /* line 380, app/Resources/frontend/css/stylesheet.scss */
     .cd-schedule .event-modal {
       /* reset style */
       right: auto;
@@ -3557,83 +3556,83 @@ Main Components
       will-change: transform, width, height;
       transition: height .4s, width .4s, transform .4s, visibility .4s;
       transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1); }
-      /* line 519, app/Resources/frontend/css/stylesheet.scss */
+      /* line 518, app/Resources/frontend/css/stylesheet.scss */
       .cd-schedule .event-modal .header {
         position: absolute;
         display: block;
         top: 0;
         left: 0;
         height: 100%; }
-        /* line 526, app/Resources/frontend/css/stylesheet.scss */
+        /* line 525, app/Resources/frontend/css/stylesheet.scss */
         .cd-schedule .event-modal .header .content {
           /* reset style */
           display: block;
           padding: .8em; }
-      /* line 533, app/Resources/frontend/css/stylesheet.scss */
+      /* line 532, app/Resources/frontend/css/stylesheet.scss */
       .cd-schedule .event-modal .event-info > div {
         padding: 2em 3em 2em 2em; }
-      /* line 537, app/Resources/frontend/css/stylesheet.scss */
+      /* line 536, app/Resources/frontend/css/stylesheet.scss */
       .cd-schedule .event-modal .body {
         height: 100%;
         width: auto; }
-      /* line 542, app/Resources/frontend/css/stylesheet.scss */
+      /* line 541, app/Resources/frontend/css/stylesheet.scss */
       .cd-schedule .event-modal .header-bg, .cd-schedule .event-modal .body-bg {
         /* Force Hardware acceleration */
         transform: translateZ(0);
         will-change: transform;
         backface-visibility: hidden; }
-      /* line 549, app/Resources/frontend/css/stylesheet.scss */
+      /* line 548, app/Resources/frontend/css/stylesheet.scss */
       .cd-schedule .event-modal .header-bg {
         transition: transform .4s;
         transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1); }
-      /* line 554, app/Resources/frontend/css/stylesheet.scss */
+      /* line 553, app/Resources/frontend/css/stylesheet.scss */
       .cd-schedule .event-modal .body-bg {
         opacity: 0;
         transform: none; }
-      /* line 559, app/Resources/frontend/css/stylesheet.scss */
+      /* line 558, app/Resources/frontend/css/stylesheet.scss */
       .cd-schedule .event-modal .event-date {
         display: block; }
-      /* line 563, app/Resources/frontend/css/stylesheet.scss */
+      /* line 562, app/Resources/frontend/css/stylesheet.scss */
       .cd-schedule .event-modal .close, .cd-schedule .event-modal .event-info {
         opacity: 0; }
-      /* line 567, app/Resources/frontend/css/stylesheet.scss */
+      /* line 566, app/Resources/frontend/css/stylesheet.scss */
       .cd-schedule .event-modal .close {
         width: 40px;
         height: 40px;
         background: transparent; }
-        /* line 572, app/Resources/frontend/css/stylesheet.scss */
+        /* line 571, app/Resources/frontend/css/stylesheet.scss */
         .cd-schedule .event-modal .close::after, .cd-schedule .event-modal .close::before {
           height: 16px; } }
   @media only screen and (min-width: 1000px) {
-    /* line 579, app/Resources/frontend/css/stylesheet.scss */
+    /* line 578, app/Resources/frontend/css/stylesheet.scss */
     .cd-schedule .event-modal .header .content {
       padding: 1.2em; } }
 
-/* line 585, app/Resources/frontend/css/stylesheet.scss */
+/* line 584, app/Resources/frontend/css/stylesheet.scss */
 .cd-schedule.modal-is-open .event-modal {
   /* .modal-is-open class is added as soon as an event is selected */
   transform: translateX(0);
   visibility: visible; }
-  /* line 590, app/Resources/frontend/css/stylesheet.scss */
+  /* line 589, app/Resources/frontend/css/stylesheet.scss */
   .cd-schedule.modal-is-open .event-modal .event-info > div {
     /* smooth scroll on iOS touch devices */
     -webkit-overflow-scrolling: touch; }
 
 @media only screen and (min-width: 800px) {
-  /* line 597, app/Resources/frontend/css/stylesheet.scss */
+  /* line 596, app/Resources/frontend/css/stylesheet.scss */
   .cd-schedule.animation-completed .event-modal .close,
   .cd-schedule.content-loaded.animation-completed .event-modal .event-info {
     /* 	the .animation-completed class is added when the modal animation is completed
 			the .content-loaded class is added when the modal content has been loaded (using ajax) */
     opacity: 1;
     transition: opacity .2s; }
-  /* line 605, app/Resources/frontend/css/stylesheet.scss */
+  /* line 604, app/Resources/frontend/css/stylesheet.scss */
   .cd-schedule.modal-is-open .body-bg {
     opacity: 1;
     transition: transform .4s;
     transition-timing-function: cubic-bezier(0.5, 0, 0.1, 1); } }
 
-/* line 612, app/Resources/frontend/css/stylesheet.scss */
+/* line 611, app/Resources/frontend/css/stylesheet.scss */
 .cd-schedule .cover-layer {
   /* layer between the content and the modal window */
   position: fixed;
@@ -3647,19 +3646,19 @@ Main Components
   visibility: hidden;
   transition: opacity .4s, visibility .4s; }
 
-/* line 626, app/Resources/frontend/css/stylesheet.scss */
+/* line 625, app/Resources/frontend/css/stylesheet.scss */
 .cd-schedule.modal-is-open .cover-layer {
   opacity: 1;
   visibility: visible; }
 
-/* line 631, app/Resources/frontend/css/stylesheet.scss */
+/* line 630, app/Resources/frontend/css/stylesheet.scss */
 .switchday {
   margin-top: 30px;
   text-align: center; }
-  /* line 634, app/Resources/frontend/css/stylesheet.scss */
+  /* line 633, app/Resources/frontend/css/stylesheet.scss */
   .switchday li {
     display: inline-block; }
   @media only screen and (min-width: 800px) {
-    /* line 631, app/Resources/frontend/css/stylesheet.scss */
+    /* line 630, app/Resources/frontend/css/stylesheet.scss */
     .switchday {
       text-align: right; } }

@@ -43,17 +43,38 @@ jQuery(document).ready(function($){
 
 	SchedulePlan.prototype.scheduleReset = function() {
 		var mq = this.mq();
+        if( mq == 'desktop') {
+            //in this case you are on a desktop version (first load or resize from mobile)
+            this.eventSlotHeight = this.eventsGroup.eq(0).children('.top-info').outerHeight();
+            //this.element.addClass('js-full');
+            this.eventsGroup.children('ul').add(this.singleEvents).removeAttr('style');
+            this.placeEvents('desktop');
+            //this.element.hasClass('modal-is-open') && this.checkEventModal();
+        } else if(  mq == 'mobile') {
+            this.eventSlotHeight = this.eventsGroup.eq(0).children('.top-info').outerHeight();
+            //in this case you are on a mobile version (first load or resize from desktop)
+            //this.element.removeClass('js-full loading');
+            this.eventsGroup.children('ul').add(this.singleEvents).removeAttr('style');
+            this.placeEvents('mobile');
+            //this.eventsWrapper.children('.grid-line').remove();
+            //this.element.hasClass('modal-is-open') && this.checkEventModal();
+        }
+
+		return;
+
 		if( mq == 'desktop' && !this.element.hasClass('js-full') ) {
 			//in this case you are on a desktop version (first load or resize from mobile)
 			this.eventSlotHeight = this.eventsGroup.eq(0).children('.top-info').outerHeight();
 			this.element.addClass('js-full');
-			this.placeEvents();
+            this.eventsGroup.children('ul').add(this.singleEvents).removeAttr('style');
+			this.placeEvents('desktop');
 			this.element.hasClass('modal-is-open') && this.checkEventModal();
 		} else if(  mq == 'mobile' && this.element.hasClass('js-full') ) {
 			//in this case you are on a mobile version (first load or resize from desktop)
 			this.element.removeClass('js-full loading');
-			this.eventsGroup.children('ul').add(this.singleEvents).removeAttr('style');
-			this.eventsWrapper.children('.grid-line').remove();
+            this.eventsGroup.children('ul').add(this.singleEvents).removeAttr('style');
+            this.placeEvents('mobile');
+			this.eventsWrapper.children('.grid-line').remove();s
 			this.element.hasClass('modal-is-open') && this.checkEventModal();
 		} else if( mq == 'desktop' && this.element.hasClass('modal-is-open')){
 			//on a mobile version with modal open - need to resize/move modal window
@@ -85,20 +106,29 @@ jQuery(document).ready(function($){
 		});
 	};
 
-	SchedulePlan.prototype.placeEvents = function() {
+	SchedulePlan.prototype.placeEvents = function(device) {
 		var self = this;
 		this.singleEvents.each(function(){
 			//place each event in the grid -> need to set top position and height
 			var start = ($(this).attr('data-start') - self.timelineStartDate) / 60;
 			var duration = ($(this).attr('data-end') - $(this).attr('data-start')) / 60;
 
+
 			var eventTop = self.eventSlotHeight*(start - self.timelineStart)/self.timelineUnitDuration;
 			var eventHeight = self.eventSlotHeight*duration/self.timelineUnitDuration;
 
-			$(this).css({
-				top: (eventTop -1) +'px',
-				height: (eventHeight+1)+'px'
-			});
+			if(device == 'desktop') {
+                $(this).css({
+                    top: (eventTop -1) +'px',
+                    height: (eventHeight+1)+'px'
+                });
+			} else {
+                $(this).css({
+                    left: (eventTop -1)*2 +'px',
+                    width: (eventHeight+1)*2 +'px'
+                });
+			}
+
 		});
 
 		this.element.removeClass('loading');
@@ -264,14 +294,8 @@ jQuery(document).ready(function($){
 	SchedulePlan.prototype.checkEventModal = function(device) {
 		this.animating = true;
 		var self = this;
-		var mq = this.mq();
 
-		if( mq == 'mobile' ) {
-			//reset modal style on mobile
-			self.modal.add(self.modalHeader).add(self.modalHeaderBg).add(self.modalBody).add(self.modalBodyBg).attr('style', '');
-			self.modal.removeClass('no-transition');	
-			self.animating = false;	
-		} else if( mq == 'desktop' && self.element.hasClass('modal-is-open') ) {
+ 		if( self.element.hasClass('modal-is-open') ) {
 			self.modal.addClass('no-transition');
 			self.element.addClass('animation-completed');
 			var event = self.eventsGroup.find('.selected-event');
