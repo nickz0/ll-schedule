@@ -8,6 +8,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Validator\Constraints\Date;
 
 class DefaultController extends Controller
 {
@@ -25,8 +26,13 @@ class DefaultController extends Controller
     /**
      * Show event in calendar.
      */
-    public function indexAction(Request $request, string $day = 'friday'): Response
+    public function indexAction(Request $request, string $day = null): Response
     {
+        // default day is today (based on day name)
+        if(is_null($day) ) {
+            $day = strtolower(date('l'));
+        }
+
         switch($day) {
             case 'friday' :
                 $date = new DateTime("18-08-2017 8:00:00");
@@ -36,6 +42,9 @@ class DefaultController extends Controller
                 break;
             case 'sunday' :
                 $date = new DateTime("20-08-2017 8:00:00");
+                break;
+            default :
+                $date = new DateTime("18-08-2017 8:00:00");
                 break;
         }
 
